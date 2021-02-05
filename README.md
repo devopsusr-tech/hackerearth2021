@@ -6,7 +6,7 @@ txt txt txt
 
 <h2> Layers </h2>
 
-![plot](./Architecture.png)
+![plot](images/Architecture.png)
 
 <h2> How to </h2>
 
