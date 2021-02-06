@@ -45,8 +45,11 @@ pipeline {
         }
 
         stage('apply: docker images'){
-            when {
-                branch 'main'
+            when{
+                allOf{
+                    branch 'main'
+                    environment name: 'PLAN_CODE', value: "2"
+                }
             }
              steps {
                  build job: 'hackerearth-main'
