@@ -49,12 +49,26 @@ pipeline {
         }
 
         stage('push: docker images') {
+            when{
+                allOf{
+                    expression {
+                        return env.GIT_BRANCH == "origin/main"
+                    }
+                }
+            }
             steps {
                 sh 'echo "here we push the docker images to dockerhub"'
             }
         }
 
         stage('deploy: app') {
+            when{
+                allOf{
+                    expression {
+                        return env.GIT_BRANCH == "origin/main"
+                    }
+                }
+            }
             steps {
                 sh 'echo "here we run the newest image"'
             }
