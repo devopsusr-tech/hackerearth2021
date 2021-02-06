@@ -40,7 +40,7 @@ pipeline {
 
         stage('build: frontend') {
             steps {
-                   echo " TEEEST ${env.GIT_BRANCH}"
+                   echo "${env.GIT_BRANCH}"
             }
         }
 
@@ -50,7 +50,6 @@ pipeline {
                     expression {
                         return env.GIT_BRANCH == "origin/main"
                     }
-                    environment name: 'PLAN_CODE', value: "2"
                 }
             }
              steps {

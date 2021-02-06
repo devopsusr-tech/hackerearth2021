@@ -50,13 +50,13 @@ pipeline {
 
         stage('push: docker images') {
             steps {
-                sh "here we push the docker images to dockerhub"
+                sh 'echo "here we push the docker images to dockerhub"'
             }
         }
 
         stage('deploy: app') {
             steps {
-                sh "here we run the newest image"
+                sh 'echo "here we run the newest image"'
             }
         }
     }
