@@ -40,14 +40,16 @@ pipeline {
 
         stage('build: frontend') {
             steps {
-                sh 'docker build frontend/'
+                   echo " TEEEST ${env.GIT_BRANCH}"
             }
         }
 
         stage('apply: docker images'){
             when{
                 allOf{
-                    branch 'main'
+                    expression {
+                        return env.GIT_BRANCH == "origin/main"
+                    }
                     environment name: 'PLAN_CODE', value: "2"
                 }
             }
