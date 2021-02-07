@@ -25,15 +25,14 @@ services:
       - spring_mongo_angular_docker_net
 
   #************Backend***************
-  #frontend_angular:
-  #  container_name: angular_container
-  #  image: nginx:1.17.1-alpine
-  #  ports:
-  #   - 4200:4200
-  #  networks:
-  #    #mongo db and spring app should be under same network to communicate each other
-  #   - spring_mongo_angular_docker_net
-
+  frontend_angular:
+    container_name: angular_container
+    image: emircajlakem/vaccathon-rest-api
+    ports:
+     - 4200:4200
+    networks:
+      #mongo db and spring app should be under same network to communicate each other
+     - spring_mongo_angular_docker_net
 networks:
   spring_mongo_angular_docker_net:
     driver: bridge
