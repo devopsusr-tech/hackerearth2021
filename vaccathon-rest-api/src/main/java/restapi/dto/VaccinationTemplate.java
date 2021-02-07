@@ -1,27 +1,18 @@
 package restapi.dto;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collation = "vaccinationTemplate")
 public class VaccinationTemplate {
-    private Integer id;
+    @Id
+    private Long id;
     private String description;
     private String sideEffects;
     private String company;
     private Integer effectDuration;
-
-    public VaccinationTemplate(Integer id, String description, String sideEffects, String company) {
-        this.id = id;
-        this.description = description;
-        this.sideEffects = sideEffects;
-        this.company = company;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public VaccinationTemplate setId(Integer id) {
-        this.id = id;
-        return this;
-    }
+    private String type;
+    private String targetGroup;
 
     public String getDescription() {
         return description;
@@ -56,6 +47,33 @@ public class VaccinationTemplate {
 
     public VaccinationTemplate setEffectDuration(Integer effectDuration) {
         this.effectDuration = effectDuration;
+        return this;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public VaccinationTemplate setId(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public VaccinationTemplate setType(String type) {
+        this.type = type;
+        return this;
+    }
+
+    public String getTargetGroup() {
+        return targetGroup;
+    }
+
+    public VaccinationTemplate setTargetGroup(String targetGroup) {
+        this.targetGroup = targetGroup;
         return this;
     }
 }

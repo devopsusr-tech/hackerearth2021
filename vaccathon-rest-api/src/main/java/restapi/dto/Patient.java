@@ -8,10 +8,10 @@ import java.util.ArrayList;
 public class Patient extends Person{
     private ArrayList<Vaccination> vaccinationList;
 
+
     public ArrayList<Vaccination> getVaccinationList() {
         return vaccinationList;
     }
-
     public Patient setVaccinationList(ArrayList<Vaccination> vaccinationList) {
         this.vaccinationList = vaccinationList;
         return this;

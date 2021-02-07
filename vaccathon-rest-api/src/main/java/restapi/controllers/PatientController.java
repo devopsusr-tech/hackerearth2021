@@ -14,11 +14,6 @@ public class PatientController {
     @Autowired
     public PatientRepository patientRepository;
 
-    @RequestMapping("/")
-    public String getIFVersion(){
-        return "v.1.0";
-    }
-
     @RequestMapping(value = "/findAllPatients")
     public List<Patient> getAllPatients(){
         return patientRepository.findAll();

@@ -6,6 +6,7 @@ public class Vaccination {
     private VaccinationTemplate template;
     private Date applicationDate;
     private Doctor doctor;
+    private Date expirationDate;
 
     public VaccinationTemplate getTemplate() {
         return template;

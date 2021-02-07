@@ -6,10 +6,14 @@ import java.util.Date;
 
 public class Person {
     @Id
-    private Long id;
+    private Long nationalInsuranceNumber;
     private String firstName;
     private String lastName;
     private Date birthDay;
+    private String email;
+    private String phone;
+    private String city;
+
 
     public String getFirstName() {
         return firstName;
@@ -38,12 +42,39 @@ public class Person {
         return this;
     }
 
-    public Long getId() {
-        return id;
+    public Long getNationalInsuranceNumber() {
+        return nationalInsuranceNumber;
     }
 
-    public Person setId(Long id) {
-        this.id = id;
+    public Person setNationalInsuranceNumber(Long nationalInsuranceNumber) {
+        this.nationalInsuranceNumber = nationalInsuranceNumber;
+        return this;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Person setEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public Person setPhone(String phone) {
+        this.phone = phone;
+        return this;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public Person setCity(String city) {
+        this.city = city;
         return this;
     }
 }
