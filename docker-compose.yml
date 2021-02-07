@@ -16,7 +16,7 @@ services:
     container_name: spring_container
     image: emircajlakem/vaccathon-rest-api
     ports:
-      - 9090:8080
+      - 9090:8888
     depends_on:
       # make sure mongo db runs first before backend starts
       - database_mongo
@@ -29,7 +29,7 @@ services:
     container_name: angular_container
     image: emircajlakem/vaccathon-rest-api
     ports:
-     - 4200:4200
+     - 8080:8080
     networks:
       #mongo db and spring app should be under same network to communicate each other
      - spring_mongo_angular_docker_net
