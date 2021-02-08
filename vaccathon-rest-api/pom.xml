@@ -15,6 +15,9 @@
     <description>REST API for vaccathon web app</description>
     <properties>
         <java.version>11</java.version>
+        <sonar.projectKey>devopsusr-tech_hackerearth2021</sonar.projectKey>
+        <sonar.organization>devopsusr-tech</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
     <dependencies>
         <dependency>

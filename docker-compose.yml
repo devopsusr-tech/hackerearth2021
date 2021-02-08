@@ -14,7 +14,7 @@ services:
   #************Backend***************
   backend_spring:
     container_name: spring_container
-    image: emircajlakem/vaccathon-rest-api
+    image: lulzimbulica/vaccathon-backend
     ports:
       - 9090:8888
     depends_on:
@@ -27,7 +27,7 @@ services:
   #************Backend***************
   frontend_angular:
     container_name: angular_container
-    image: emircajlakem/vaccathon-angular-app
+    image: lulzimbulica/vaccathon-frontend
     ports:
      - 80:80
     networks:
