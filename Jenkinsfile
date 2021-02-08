@@ -34,13 +34,13 @@ pipeline {
 
         stage('build: backend') {
             steps {
-                sh 'docker build vaccathon-rest-api/'
+                sh 'docker build -t lulzimbulica/vaccathon-frontend vaccathon-rest-api/'
             }
         }
 
         stage('build: frontend') {
             steps {
-                sh 'docker build frontend/vaccathon'
+                sh 'docker build -t lulzimbulica/vaccathon-frontend frontend/vaccathon'
             }
         }
 
@@ -70,7 +70,14 @@ pipeline {
                 }
             }
             steps {
-                sh 'echo "here we push the docker images to dockerhub"'
+                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'dockerhub',
+                                     usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+                    sh '''
+                    docker login -u $USERNAME -p $PASSWORD
+                    docker push lulzimbulica/vaccathon-frontend
+                    docker push lulzimbulica/vaccathon-backend
+                    '''
+                }
             }
         }
 
