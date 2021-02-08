@@ -48,6 +48,30 @@ public class VaccathonRestApiApplication {
             templateRepository.save(vt2);
             VaccinationTemplate vt3 = new VaccinationTemplate(5452554L, "rolling review seit 01. Okt. 2020; Antrag auf bedingte Marktzulassung bei der EMA am 12. Jan. 2021", "Fever, Swelling", "Astra-Zeneca/Oxford University", 140,"AZD1222", "<55 years", "0, 28 Days");
             templateRepository.save(vt3);
+            VaccinationTemplate vt4 = new VaccinationTemplate(5454554L, "Kinderimpfung: Die FSME-Impfung ist ab dem vollendeten 1. Lebensjahr zugelassen. Entsprechend den Empfehlungen der WHO16 soll in Endemiegebieten eine Impfung ab dem vollendeten 1. Lebensjahr erfolgen. Erwachsenenimpfung: Grundimmunisierung und Auffrischungsimpfungen erfolgen gemaeß dem unten angegebenen Schema. Grundimmunisierung: FSME-Immun: 2. Dosis nach 1–3 Monaten, 3. Dosis 5–12 Monate nach der 2. Dosis. Encepur: 2. Dosis nach 1–3 Monaten, 3. Dosis 9–12 Monate nach der 2. Dosis.",
+                    "(sehr haeufig) Lokalreaktionen: Schmerzen, allgemeines Unwohlsein, Myalgien, Kopfschmerzen (haeufig) Kopfschmerzen, uebelkeit, Myalgie, Arthralgie, Muedigkeit, Krankheitsgefuehl, grippeaehnliche Symptome: Schweißausbrueche,Schuettelfrost (gelegentlich) Lymphadenopathie, Schwindel, Erbrechen, Fieber, Fieber ueber 38°C v.a. nach der ersten Impfung",
+                    "Bavarian Nordic A/S", 1825,"FSME", ">=12 years", "0, 28 Days");
+            templateRepository.save(vt4);
+            VaccinationTemplate vt5 = new VaccinationTemplate(5455554L, "Kinderimpfung: Die FSME-Impfung ist ab dem vollendeten 1. Lebensjahr zugelassen. Entsprechend den Empfehlungen der WHO16 soll in Endemiegebieten eine Impfung ab dem vollendeten 1. Lebensjahr erfolgen. Erwachsenenimpfung: Grundimmunisierung und Auffrischungsimpfungen erfolgen gemaeß dem unten angegebenen Schema. Grundimmunisierung: FSME-Immun: 2. Dosis nach 1–3 Monaten, 3. Dosis 5–12 Monate nach der 2. Dosis. Encepur: 2. Dosis nach 1–3 Monaten, 3. Dosis 9–12 Monate nach der 2. Dosis.",
+                    "(sehr haeufig) Lokalreaktionen: Schmerzen, allgemeines Unwohlsein, Myalgien, Kopfschmerzen (haeufig) Kopfschmerzen, uebelkeit, Myalgie, Arthralgie, Muedigkeit, Krankheitsgefuehl, grippeaehnliche Symptome: Schweißausbrueche,Schuettelfrost (gelegentlich) Lymphadenopathie, Schwindel, Erbrechen, Fieber, Fieber ueber 38°C v.a. nach der ersten Impfung",
+                    "Bavarian Nordic A/S", 1825,"FSME Junior", "<12 years", "0, 28 Days");
+            templateRepository.save(vt5);
+            VaccinationTemplate vt6 = new VaccinationTemplate(5456554L, "Es wird mit einem Konjugatimpfstoff nach dem 2+1 Schema im 3., 5. und 12.–14. Lebensmonat geimpft. Auch Kinder mit Risiken/Indikation werden nach dem 2+1 Schema geimpft. Bei der Erwachsenenimpfung werden drei Gruppen unterschieden: Gesunde Erwachsene (>60 Jahre), Personen mit erhoehtem Risiko zu erkranken (>50 Jahre) und Personen mit hohem Risiko und dringend indizierter Impfung (alle Altersgruppen).",
+                    "(haeufig) Kopfschmerz, Schwitzen, Muskel- und Gelenkschmerzen, Fieber, Unwohlsein, Schuettelfrost, Muedigkeit, Lokalreaktionen: Roetung,Schwellung, Schmerzen, Induration, Ekchymose (gelegentlich) allgemeine Hautreaktionen einschl. Pruritus, Urtikaria, unspezifischer Hautausschlag",
+                    "GSK Biologicals S.A.", 2190,"Pneumokokken", ">2 years", "0, 28 Days");
+            templateRepository.save(vt6);
+            VaccinationTemplate vt7 = new VaccinationTemplate(5457554L, "Sobald in oesterreich zugelassene COVID-19-Impfstoffe zur Verfuegung stehen, wird seitens des Nationalen Impfgremiums geprueft, fuer welche Personengruppen diese empfohlen werden und eine entsprechende Empfehlung zur Impfung veroeffentlicht. Da davon auszugehen ist, dass diese Empfehlung basierend auf den jeweils vorliegenden Daten regelmaeßig adaptiert werden muss, wird diese außerhalb des Impfplans gesondert in eigenem eigenen Dokument abgehandelt und kuenftig unter https://www.sozialministerium.at/Corona-Schutzimpfung zur Verfuegung stehen",
+                    "(sehr haeufig) Schmerzen (haeufig) Muedigkeitsgefuehle (gelegentlich) Roetung, Juckreiz, Kopfschmerzen, Fieber, Durchfall",
+                    "BioNTech Manufacturing GmbH", 2190,"COVID-19", ">16 years", "0, 28 Days");
+            templateRepository.save(vt7);
+            VaccinationTemplate vt8 = new VaccinationTemplate(5458554L, "Indiziert bei Reisen in Endemiegebiete des tropischen Afrikas und Suedamerikas. Einmalige Lebendimpfung, danach formal lebenslanger Schutz. Bei einigen Personengruppen koennte unabhaengig von der WHO Richtlinie eine Wiederholungsimpfung jedenfalls sinnvoll sein, da sie ueber eine moeglicherweise abgeschwaechte Immunantwort verfuegen: zum Beispiel Kinder, die bei Erstimpfung unter 2 Jahre alt waren, Frauen, die in der Graviditaet geimpft wurden",
+                    "(sehr haeufig) Lokalreaktion: Schmerzen, Schwellung, Roetung, Myalgien (haeufig) Lokalreaktion: Induration, Abgeschlagenheit, Arthralgien, Kopfschmerzen",
+                    "Sanofi Pasteur Europe", 36500,"Gelbfieber", ">9 months", "0, 28 Days");
+            templateRepository.save(vt8);
+            VaccinationTemplate vt9 = new VaccinationTemplate(5459554L, "Die Schutzimpfung gegen Cholera ist im Tourismus weitgehend entbehrlich, das Risiko einer schweren dehydrierenden Erkrankung fuer touristisch reisende Personen liegt in einer Groeßenordnung von 1:3 Millionen. Nur unter speziellen Bedingungen, wie z.B. bei Choleraausbruechen nach Naturkatastrophen oder in Fluechtlingslagern sollte daran gedacht werden, vor allem dort taetige Personen zu immunisieren. Kinder vom vollendeten 2. bis zum vollendeten 6. Lebensjahr: 3 Impfdosen im Abstand von jeweils 1 bis 6 Wochen.",
+                    "(sehr haeufig) Lokalreaktion: Schmerz, Roetung, Mattigkeit, Appetitlosigkeit, Reizbarkeit, Kopfschmerzen (haeufig) Schlaefrigkeit, Kopfschmerzen, gastrointestinale Beschwerden, uebelkeit, Appetitlosigkeit, Lokalreaktionen: Schwellung, Hauteinblutung, Unwohlsein, Fieber > 37,5°C, Reizbarkeit, Fieber (gelegentlich) Durchfall, Erbrechen, Abdominalschmerzen, Hautausschlag, Myalgie, Infektion der oberen Atemwege ",
+                    "Emergent NL B.V.", 730,"Cholera", ">6 years", "0, 28 Days");
+            templateRepository.save(vt9);
 
             Date dt = new Date();
             Vaccination vaccination1 = new Vaccination(54534543453455554L, vt1, dt,doctor, new Date(dt.getTime()+(86400000*vt1.getEffectDuration())), "Serial: 2j122111212jhv4b");
@@ -90,8 +114,8 @@ public class VaccathonRestApiApplication {
             patientRepository.save(new Patient(12624455L, "Verena", "Matzenberger",new Date(), "verena@gmail.com", "0699132121", "Vienna", Arrays.asList(new Vaccination[]{vaccination3, vaccination9})));
             patientRepository.save(new Patient(12666855L, "Omid", "Jafarabadi Navidreza",new Date(), "omid@gmail.com", "0699163221", "Vienna", Arrays.asList(new Vaccination[]{vaccination4, vaccination10})));
             patientRepository.save(new Patient(12554425L, "Navid", "Jafarabadi Navidreza",new Date(), "navid@gmail.com", "069959621", "Vienna", Arrays.asList(new Vaccination[]{vaccination5, vaccination11})));
-            patientRepository.save(new Patient(12554495L, "Zslot", "Tamas",new Date(), "zslot@gmail.com", "069915421", "Vienna", Arrays.asList(new Vaccination[]{vaccination6, vaccination12})));
-            patientRepository.save(new Patient(12554435L, "Blut", "Ömer",new Date(), "oemer@gmail.com", "069954121", "Vienna", Arrays.asList(new Vaccination[]{vaccination13, vaccination14})));
+            patientRepository.save(new Patient(12554495L, "Zsolt", "Tamas",new Date(), "zslot@gmail.com", "069915421", "Vienna", Arrays.asList(new Vaccination[]{vaccination6, vaccination12})));
+            patientRepository.save(new Patient(12554435L, "Bulut", "Ömer",new Date(), "oemer@gmail.com", "069954121", "Vienna", Arrays.asList(new Vaccination[]{vaccination13, vaccination14})));
 
 
 

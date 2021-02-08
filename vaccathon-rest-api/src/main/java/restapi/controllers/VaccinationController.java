@@ -22,18 +22,18 @@ public class VaccinationController {
     }
 
     @RequestMapping(value = "/findAllVaccinations")
-    public List<Vaccination> getAllPatients(){
+    public List<Vaccination> getAllVaccinations(){
         return vaccinationRepository.findAll();
     }
 
     @PostMapping(value = "/createVaccination")
     public String createPatient(@RequestBody Vaccination vaccination){
-        Vaccination cretedvaccination = vaccinationRepository.insert(vaccination);
+        vaccinationRepository.insert(vaccination);
         return "Vaccination created ";
     }
 
     @GetMapping("/findAllVaccinations/{id}")
-    public Optional<Vaccination> getPatient(@PathVariable long id){
+    public Optional<Vaccination> getVaccination(@PathVariable long id){
         return vaccinationRepository.findById(id);
     }
 }

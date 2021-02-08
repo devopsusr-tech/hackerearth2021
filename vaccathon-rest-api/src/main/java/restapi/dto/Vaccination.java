@@ -1,6 +1,7 @@
 package restapi.dto;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
@@ -9,6 +10,7 @@ import java.util.Date;
 public class Vaccination {
     @Id
     private Long productNumber;
+    @DBRef
     private VaccinationTemplate template;
     private Date applicationDate;
     private Doctor doctor;
