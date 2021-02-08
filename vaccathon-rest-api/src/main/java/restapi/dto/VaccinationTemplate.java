@@ -14,9 +14,8 @@ public class VaccinationTemplate {
     private String type;
     private String targetGroup;
     private String vaccinationPlan;
-    private int numberOfDoses;
 
-    public VaccinationTemplate(Long id, String description, String sideEffects, String company, Integer effectDuration, String type, String targetGroup,int doses, String vaccinationPlan) {
+    public VaccinationTemplate(Long id, String description, String sideEffects, String company, Integer effectDuration, String type, String targetGroup, String vaccinationPlan) {
         this.id = id;
         this.description = description;
         this.sideEffects = sideEffects;
@@ -24,7 +23,6 @@ public class VaccinationTemplate {
         this.effectDuration = effectDuration;
         this.type = type;
         this.targetGroup = targetGroup;
-        this.numberOfDoses = doses;
         this.vaccinationPlan = vaccinationPlan;
     }
 

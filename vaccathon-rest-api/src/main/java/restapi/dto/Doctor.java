@@ -1,7 +1,11 @@
 package restapi.dto;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.ArrayList;
 import java.util.Date;
 
+@Document
 public class Doctor extends Person{
     private String hospital;
 

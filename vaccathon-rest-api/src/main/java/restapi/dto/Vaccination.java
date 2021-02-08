@@ -10,6 +10,15 @@ public class Vaccination {
     private Date applicationDate;
     private Doctor doctor;
     private Date expirationDate;
+    private String remark;
+
+    public Vaccination(VaccinationTemplate template, Date applicationDate, Doctor doctor, Date expirationDate, String remark) {
+        this.template = template;
+        this.applicationDate = applicationDate;
+        this.doctor = doctor;
+        this.expirationDate = expirationDate;
+        this.remark = remark;
+    }
 
     public VaccinationTemplate getTemplate() {
         return template;

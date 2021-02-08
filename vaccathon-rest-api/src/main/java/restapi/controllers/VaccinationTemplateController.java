@@ -2,10 +2,7 @@ package restapi.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import restapi.dto.Patient;
 import restapi.dto.VaccinationTemplate;
-import restapi.repositories.PatientRepository;
-import restapi.repositories.VaccinationRepository;
 import restapi.repositories.VaccinationTemplateRepository;
 
 import java.util.List;
@@ -17,7 +14,7 @@ public class VaccinationTemplateController {
     @Autowired
     public VaccinationTemplateRepository vaccinationTemplateRepository;
 
-    @RequestMapping(value = "/findAllVaccinationTemplate")
+    @RequestMapping(value = "/findAllVaccinationTemplates")
     public List<VaccinationTemplate> getAllPatients(){
         return vaccinationTemplateRepository.findAll();
     }
@@ -28,7 +25,7 @@ public class VaccinationTemplateController {
         return "VaccinationTemplate created "+created.getDescription();
     }
 
-    @GetMapping("/findAllVaccinationTemplate/{id}")
+    @GetMapping("/findAllVaccinationTemplates/{id}")
     public Optional<VaccinationTemplate> getPatient(@PathVariable long id){
         return vaccinationTemplateRepository.findById(id);
     }
