@@ -20,8 +20,18 @@ pipeline {
 
         stage('code quality') {
             steps {
-                sh 'echo code-quality'
+              withSonarQubeEnv('My SonarQube Server') {
+                sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar'
+              }
             }
+          }
+          stage("Quality Gate") {
+            steps {
+              timeout(time: 1, unit: 'HOURS') {
+                waitForQualityGate abortPipeline: true
+              }
+            }
+          }
         }
 
         stage('unit tests') {
