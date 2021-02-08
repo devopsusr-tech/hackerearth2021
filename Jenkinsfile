@@ -38,7 +38,7 @@ pipeline {
 
         stage('build: frontend') {
             steps {
-                sh 'docker build frontend/'
+                sh 'docker build frontend/vaccathon'
             }
         }
 
