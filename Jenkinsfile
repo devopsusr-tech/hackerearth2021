@@ -12,6 +12,15 @@ pipeline {
     }
 
     stages {
+        stage('perparation') {
+            steps {
+                sh '''
+                mvn --version
+                docker --version
+                docker-compose version
+                '''
+            }
+        }
 
         stage('code quality') {
             steps {
