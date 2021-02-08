@@ -48,7 +48,7 @@ pipeline {
             }
         }
 
- /*       stage('approval') {
+        stage('approval') {
             when{
                 allOf{
                     expression {
@@ -58,13 +58,13 @@ pipeline {
             }
             steps {
                 script {
-                    timeout(time: 10, unit: 'MINUTES') {
+                    timeout(time: 1, unit: 'MINUTES') {
                         input(id: 'Deploy Gate', message: 'Deploy the builded app?', ok: 'Deploy')
                     }
                 }
             }
         }
-*/
+
         stage('push: docker images') {
             when{
                 allOf{
