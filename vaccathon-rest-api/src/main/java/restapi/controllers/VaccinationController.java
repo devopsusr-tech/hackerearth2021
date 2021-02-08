@@ -18,7 +18,7 @@ public class VaccinationController {
 
     @RequestMapping("/")
     public String getIFVersion(){
-        return "Vaccathon v.1.0";
+        return "\"Vaccathon v.1.0\"";
     }
 
     @RequestMapping(value = "/findAllVaccinations")

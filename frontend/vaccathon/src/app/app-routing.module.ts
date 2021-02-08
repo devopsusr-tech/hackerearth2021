@@ -10,7 +10,7 @@ const routes: Routes = [
   }, {
     path: 'profile',
     component: UserProfileComponent,
-    data: {title: 'User Profile'}
+    data: {title: 'Patient Profile'}
   }
   ]
 
