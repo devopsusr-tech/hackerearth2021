@@ -14,7 +14,12 @@ pipeline {
     stages {
         stage('perparation') {
             steps {
-                sh 'echo works'
+                sh '''
+                mvn -version
+                java -version
+                docker -version
+                docker-compose version
+                '''
             }
         }
 
@@ -44,7 +49,7 @@ pipeline {
             }
         }
 
-        stage('approval') {
+ /*       stage('approval') {
             when{
                 allOf{
                     expression {
@@ -60,7 +65,7 @@ pipeline {
                 }
             }
         }
-
+*/
         stage('push: docker images') {
             when{
                 allOf{
