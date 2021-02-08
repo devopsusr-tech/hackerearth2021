@@ -1,7 +1,10 @@
 package restapi.dto;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.Date;
 
+@Document
 public class Vaccination {
     private VaccinationTemplate template;
     private Date applicationDate;

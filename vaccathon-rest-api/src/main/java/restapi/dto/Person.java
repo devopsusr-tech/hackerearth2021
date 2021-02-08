@@ -14,6 +14,16 @@ public class Person {
     private String phone;
     private String city;
 
+    public Person(Long nationalInsuranceNumber, String firstName, String lastName, Date birthDay, String email, String phone, String city) {
+        this.nationalInsuranceNumber = nationalInsuranceNumber;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDay = birthDay;
+        this.email = email;
+        this.phone = phone;
+        this.city = city;
+    }
+
 
     public String getFirstName() {
         return firstName;
