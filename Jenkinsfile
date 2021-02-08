@@ -20,10 +20,11 @@ pipeline {
 
         stage('code quality') {
             steps {
-            sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar'
-            }
+                    dir('vaccathon-rest-api'){
+                        sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar'
+                    }
+                }
           }
-
 
         stage('unit tests') {
             steps {
