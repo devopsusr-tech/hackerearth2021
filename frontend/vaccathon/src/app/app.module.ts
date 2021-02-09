@@ -11,11 +11,13 @@ import {TooltipModule} from "ngx-bootstrap/tooltip";
 import {ModalModule} from "ngx-bootstrap/modal";
 import {MatButtonModule} from "@angular/material/button";
 import {HttpClientModule} from "@angular/common/http";
+import { NewVaccinationComponent } from './new-vaccination/new-vaccination.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    NewVaccinationComponent
   ],
   imports: [
     BrowserModule,
