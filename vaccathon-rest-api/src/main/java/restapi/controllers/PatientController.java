@@ -3,6 +3,7 @@ package restapi.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import restapi.dto.Patient;
+import restapi.dto.Vaccination;
 import restapi.repositories.PatientRepository;
 
 import java.util.List;
@@ -28,5 +29,13 @@ public class PatientController {
     @GetMapping("/findAllPatients/{id}")
     public Optional<Patient> getPatient(@PathVariable long id){
         return patientRepository.findById(id);
+    }
+
+    public boolean addNewVaccination(Patient patient, Vaccination vaccination){
+        if (vaccination==null || patient == null)
+            return false;
+
+        patient.getVaccinationList().add(vaccination);
+        return true;
     }
 }
