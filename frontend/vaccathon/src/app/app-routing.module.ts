@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {UserProfileComponent} from "./user-profile/user-profile.component";
-import {UsersListComponent} from "./users-list/users-list.component";
+import {UserProfileComponent} from './user-profile/user-profile.component';
+import {UsersListComponent} from './users-list/users-list.component';
 
 const routes: Routes = [
   {
@@ -17,7 +17,7 @@ const routes: Routes = [
     component: UserProfileComponent,
     data: {title: 'Patient Profile'}
   }
-]
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
