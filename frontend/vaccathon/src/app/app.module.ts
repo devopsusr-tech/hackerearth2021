@@ -11,12 +11,15 @@ import {TooltipModule} from "ngx-bootstrap/tooltip";
 import {ModalModule} from "ngx-bootstrap/modal";
 import {MatButtonModule} from "@angular/material/button";
 import {HttpClientModule} from "@angular/common/http";
+import {MatTableModule} from "@angular/material/table";
+import {UsersListComponent} from "./users-list/users-list.component";
 import { NewVaccinationComponent } from './new-vaccination/new-vaccination.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserProfileComponent,
+    UsersListComponent,
     NewVaccinationComponent
   ],
   imports: [
@@ -25,7 +28,8 @@ import { NewVaccinationComponent } from './new-vaccination/new-vaccination.compo
     AppRoutingModule,
     NoopAnimationsModule,
     NgbModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent],
