@@ -20,7 +20,7 @@
         <ng-container matColumnDef="nationalInsuranceNumber">
           <th mat-header-cell *matHeaderCellDef> First Name</th>
           <td mat-cell *matCellDef="let element">
-            <button
+            <button mat-raised-button
               (click)="navigateToPatient(element.nationalInsuranceNumber)"> {{element.nationalInsuranceNumber}}
             </button>
           </td>
