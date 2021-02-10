@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import restapi.dto.Patient;
 import restapi.repositories.PatientRepository;
+import restapi.services.DocumentType;
+import restapi.services.SequenceGeneratorService;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,6 +15,8 @@ public class PatientController {
 
     @Autowired
     public PatientRepository patientRepository;
+    @Autowired
+    public SequenceGeneratorService sequenceGenerator;
 
     @RequestMapping(value = "/findAllPatients")
     public List<Patient> getAllPatients(){
@@ -21,6 +25,9 @@ public class PatientController {
 
     @PostMapping(value = "/createPatient")
     public String createPatient(@RequestBody Patient patient){
+        if(patient.getNationalInsuranceNumber() == null || patient.getNationalInsuranceNumber() == 0) {
+            patient.setNationalInsuranceNumber(sequenceGenerator.generateSequenceId(DocumentType.patient));
+        }
         Patient createdPatient = patientRepository.insert(patient);
         return "Patient created "+createdPatient.getLastName();
     }
