@@ -31,6 +31,7 @@ public class PatientController {
         return patientRepository.findById(id);
     }
 
+    @PostMapping(value = "/newVaccination")
     public boolean addNewVaccination(Patient patient, Vaccination vaccination){
         if (vaccination==null || patient == null)
             return false;
