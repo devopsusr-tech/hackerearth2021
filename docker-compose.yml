@@ -26,12 +26,8 @@ services:
 
   #************Frontend***************
   frontend_angular:
-    # use local Dockerfile:
-    #build:
-      #context: ./frontend/vaccathon
-      #dockerfile: Dockerfile
     container_name: angular_container
-    image: lulzimbulica/vaccathon-backend
+    image: lulzimbulica/vaccathon-frontend
     ports:
      - 80:80
     networks:
