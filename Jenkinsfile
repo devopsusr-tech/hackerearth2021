@@ -32,7 +32,9 @@ pipeline {
 
         stage('unit tests') {
             steps {
-                sh 'echo unit tests'
+                    dir('vaccathon-rest-api'){
+                        sh 'mvn test'
+                    }
             }
         }
 
