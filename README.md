@@ -1,11 +1,8 @@
-# Vaccination certificate
+<h1>Vaccathon</h1>
 
 
 <h2> Architiecture </h2>
 ![plot](images/BS-Page.png)
-
-<h2> Requirements </h2>
-
 
 <h2> How to run the project </h2>
 1. Clone the repo locally `git clone https://github.com/devopsusr-tech/hackerearth2021.git`
@@ -13,12 +10,24 @@
 3. Run `docker-composer up`
 4. It will be run on http://localhost
 
+<h2> Requirements to develop </h2>
+ - Docker
+ - Java 11
+ - Apache Maven
+ - npm
+ - Node JS
+ - 
+ 
 <h2> How to setup Backend </h2>
 1. ...
 
 <h2> How to setup Frontend </h2>
-[Guidelines for setuo the frontend](frontend/vaccathon/README.md)
+<a href="frontend/vaccathon/README.md">
+  Guidelines for setuo the frontend
+</a>
 
 
 <h2> License </h2>
-[![License: MIT](https://img.shields.io/badge/License-MITyellow.svg)](https://opensource.org/licenses/MIT)
+<a href="https://opensource.org/licenses/MIT">
+  <img alt="GitHub" src="https://img.shields.io/github/license/devopsusr-tech/hackerearth2021">
+</a>
