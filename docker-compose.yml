@@ -31,7 +31,7 @@ services:
       #context: ./frontend/vaccathon
       #dockerfile: Dockerfile
     container_name: angular_container
-    image: emircajlakem/vaccathon-angular-app
+    image: lulzimbulica/vaccathon-backend
     ports:
      - 80:80
     networks:
