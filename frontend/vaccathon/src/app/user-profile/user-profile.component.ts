@@ -1,7 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {PatientService} from "../services/patient.service";
-import {ActivatedRoute} from "@angular/router";
-import {Subscription} from "rxjs";
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {PatientService} from '../services/patient.service';
+import {ActivatedRoute} from '@angular/router';
+import {Subscription} from 'rxjs';
+import {Patient} from '../models/patient';
+import {Location} from '@angular/common';
 
 export interface PatientTableElement {
   firstName: string;
@@ -14,19 +16,21 @@ export interface PatientTableElement {
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss']
 })
-export class UserProfileComponent implements OnInit {
+export class UserProfileComponent implements OnInit, OnDestroy {
   private routeSub: Subscription | null = null;
   apiVersion = '';
-  test = '';
+  patient: Patient | undefined = undefined;
 
-  constructor(private patientService: PatientService, private route: ActivatedRoute) {
+  constructor(private patientService: PatientService, private route: ActivatedRoute, private location: Location) {
   }
 
   ngOnInit(): void {
     this.routeSub = this.route.params.subscribe(params => {
-      this.test = params['id'];
+      const userId = params.id;
+      this.patientService.getPatient(userId).subscribe((patient) => {
+        this.patient = patient;
+      });
     });
-
 
     this.patientService.getAPIVersion().subscribe((version) => {
       console.log('API version: ', version);
@@ -36,7 +40,11 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  ngOnDestroy() {
+  backClicked(): void {
+    this.location.back();
+  }
+
+  ngOnDestroy(): void {
     this.routeSub?.unsubscribe();
   }
 

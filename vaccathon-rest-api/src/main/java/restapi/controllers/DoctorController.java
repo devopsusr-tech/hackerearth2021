@@ -19,13 +19,13 @@ public class DoctorController {
     public SequenceGeneratorService sequenceGenerator;
 
     @CrossOrigin(origins = "http://localhost:9090")
-    @RequestMapping(value = "/rest/findAllDoctors")
+    @RequestMapping(value = "/findAllDoctors")
     public List<Doctor> getAllPatients(){
         return doctorRepository.findAll();
     }
 
     @CrossOrigin(origins = "http://localhost:9090")
-    @PostMapping(value = "/rest/createDoctor")
+    @PostMapping(value = "/createDoctor")
     public String createPatient(@RequestBody Doctor doctor){
         if(doctor.getNationalInsuranceNumber() == null || doctor.getNationalInsuranceNumber() == 0) {
             doctor.setNationalInsuranceNumber(sequenceGenerator.generateSequenceId(DocumentType.doctor));
@@ -36,7 +36,7 @@ public class DoctorController {
     }
 
     @CrossOrigin(origins = "http://localhost:9090")
-    @GetMapping("/rest/findAllDoctors/{id}")
+    @GetMapping("/findAllDoctors/{id}")
     public Optional<Doctor> getPatient(@PathVariable long id){
         return doctorRepository.findById(id);
     }
