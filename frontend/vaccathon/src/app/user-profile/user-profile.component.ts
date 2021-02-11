@@ -2,7 +2,8 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {PatientService} from '../services/patient.service';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
-import {Patient} from "../models/patient";
+import {Patient} from '../models/patient';
+import {Location} from '@angular/common';
 
 export interface PatientTableElement {
   firstName: string;
@@ -20,7 +21,7 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   apiVersion = '';
   patient: Patient | undefined = undefined;
 
-  constructor(private patientService: PatientService, private route: ActivatedRoute) {
+  constructor(private patientService: PatientService, private route: ActivatedRoute, private location: Location) {
   }
 
   ngOnInit(): void {
@@ -37,6 +38,10 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     }, error => {
       console.error(error);
     });
+  }
+
+  backClicked(): void {
+    this.location.back();
   }
 
   ngOnDestroy(): void {
