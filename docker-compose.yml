@@ -24,8 +24,12 @@ services:
       #mongo db and spring app should be under same network to communicate each other
       - spring_mongo_angular_docker_net
 
-  #************Backend***************
+  #************Frontend***************
   frontend_angular:
+    # use local Dockerfile:
+    #build:
+      #context: ./frontend/vaccathon
+      #dockerfile: Dockerfile
     container_name: angular_container
     image: lulzimbulica/vaccathon-frontend
     ports:

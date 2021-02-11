@@ -86,9 +86,7 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "my-app:build:production",
-              "proxyConfig": "proxy.conf.json"
-            },
+              "browserTarget": "my-app:build:production"},
             "local": {
               "browserTarget": "my-app:build:local",
               "proxyConfig": "proxy-local.conf.json"
