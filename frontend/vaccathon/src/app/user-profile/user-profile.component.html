@@ -1,21 +1,41 @@
-<div class="row">
-  <div style="background: aliceblue" class="col-md-6 offset-md-3">
-    <p>user-profile works!</p>
+<div *ngIf="patient" style="background: aliceblue">
+  <div class="row">
+    <div  class="col-lg-4">
+      <mat-card>
+        <mat-card-title>
+          <p>Name: {{patient.firstName}} {{patient.lastName}}</p>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <p>National Insurance Number: {{patient.nationalInsuranceNumber}}</p>
+        </mat-card-subtitle>
+        <mat-card-content>
+          <p>Birth Date: {{patient.birthDay}}</p>
+          <p>Residence City: {{patient.city}}</p>
+          <p>Phone: {{patient.phone}}</p>
+          <p>E-Mail: {{patient.email}}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
 
-    <section>
-      <div class="example-label">Button-Examples</div>
-      <div class="example-button-row">
-        <button mat-raised-button>Basic</button>
-        <button mat-raised-button color="primary">Primary</button>
-        <button mat-raised-button color="accent">Accent</button>
-        <button mat-raised-button color="warn">Warn</button>
-        <button mat-raised-button disabled>Disabled</button>
-      </div>
-    </section>
-
-    <p>API Version: {{apiVersion}}    </p>
-    <p>SVNR: {{test}}    </p>
+    <div  class="col-lg-8">
+      <mat-card>
+        <mat-card-title>
+          <p>Vaccination History</p>
+        </mat-card-title>
+        <mat-card-content>
+            <mat-list>
+              <mat-list-item *ngFor="let vacc of patient.vaccinationList">
+                <div mat-line>{{vacc.template.id}} </div>
+                <div mat-line>{{vacc.doctor.firstName}} {{vacc.doctor.lastName}}</div>
+                <div mat-line>{{vacc.applicationDate | date}}</div>
+                <div mat-line>{{vacc.expirationDate | date}}</div>
+              </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
+
+
+  <p>API Version: {{apiVersion}}    </p>
 </div>
-
-
