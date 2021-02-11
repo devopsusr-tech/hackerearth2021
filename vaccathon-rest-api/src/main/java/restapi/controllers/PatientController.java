@@ -20,13 +20,13 @@ public class PatientController {
     public SequenceGeneratorService sequenceGenerator;
 
     @CrossOrigin(origins = "http://localhost:9090")
-    @RequestMapping(value = "/findAllPatients")
+    @RequestMapping(value = "/rest/findAllPatients")
     public List<Patient> getAllPatients(){
         return patientRepository.findAll();
     }
 
     @CrossOrigin(origins = "http://localhost:9090")
-    @PostMapping(value = "/createPatient")
+    @PostMapping(value = "/rest/createPatient")
     public String createPatient(@RequestBody Patient patient){
         if(patient.getNationalInsuranceNumber() == null || patient.getNationalInsuranceNumber() == 0) {
             patient.setNationalInsuranceNumber(sequenceGenerator.generateSequenceId(DocumentType.patient));
@@ -36,13 +36,13 @@ public class PatientController {
     }
 
     @CrossOrigin(origins = "http://localhost:9090")
-    @GetMapping("/findAllPatients/{id}")
+    @GetMapping("/rest/findAllPatients/{id}")
     public Optional<Patient> getPatient(@PathVariable long id){
         return patientRepository.findById(id);
     }
 
     @CrossOrigin(origins = "http://localhost:9090")
-    @PostMapping(value = "/newVaccination")
+    @PostMapping(value = "/rest/newVaccination")
     public boolean addNewVaccination(Patient patient, Vaccination vaccination){
         if (vaccination==null || patient == null)
             return false;

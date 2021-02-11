@@ -19,19 +19,19 @@ public class VaccinationController {
     public SequenceGeneratorService sequenceGenerator;
 
     @CrossOrigin(origins = "http://localhost:9090")
-    @RequestMapping("/")
+    @RequestMapping("/rest")
     public String getIFVersion(){
         return "\"Vaccathon v.1.0\"";
     }
 
     @CrossOrigin(origins = "http://localhost:9090")
-    @RequestMapping(value = "/findAllVaccinations")
+    @RequestMapping(value = "/rest/findAllVaccinations")
     public List<Vaccination> getAllVaccinations(){
         return vaccinationRepository.findAll();
     }
 
     @CrossOrigin(origins = "http://localhost:9090")
-    @PostMapping(value = "/createVaccination")
+    @PostMapping(value = "/rest/createVaccination")
     public String createPatient(@RequestBody Vaccination vaccination){
         if(vaccination.getProductNumber() == null || vaccination.getProductNumber() == 0) {
             vaccination.setProductNumber(sequenceGenerator.generateSequenceId(DocumentType.vaccination));
@@ -42,7 +42,7 @@ public class VaccinationController {
     }
 
     @CrossOrigin(origins = "http://localhost:9090")
-    @GetMapping("/findAllVaccinations/{id}")
+    @GetMapping("/rest/findAllVaccinations/{id}")
     public Optional<Vaccination> getVaccination(@PathVariable long id){
         return vaccinationRepository.findById(id);
     }
