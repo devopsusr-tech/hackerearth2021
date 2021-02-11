@@ -18,11 +18,13 @@ public class VaccinationTemplateController {
     @Autowired
     public SequenceGeneratorService sequenceGenerator;
 
+    @CrossOrigin(origins = "http://localhost:9090")
     @RequestMapping(value = "/findAllVaccinationTemplates")
     public List<VaccinationTemplate> getAllPatients(){
         return vaccinationTemplateRepository.findAll();
     }
 
+    @CrossOrigin(origins = "http://localhost:9090")
     @PostMapping(value = "/createVaccinationTemplate")
     public String createPatient(@RequestBody VaccinationTemplate vaccinationTemplate){
         if(vaccinationTemplate.getId() == null || vaccinationTemplate.getId() == 0) {
@@ -33,6 +35,7 @@ public class VaccinationTemplateController {
         return "VaccinationTemplate created "+created.getDescription();
     }
 
+    @CrossOrigin(origins = "http://localhost:9090")
     @GetMapping("/findAllVaccinationTemplates/{id}")
     public Optional<VaccinationTemplate> getPatient(@PathVariable long id){
         return vaccinationTemplateRepository.findById(id);
