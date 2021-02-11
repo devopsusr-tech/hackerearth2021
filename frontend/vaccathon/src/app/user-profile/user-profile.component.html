@@ -15,6 +15,12 @@
           <p>E-Mail: {{patient.email}}</p>
         </mat-card-content>
       </mat-card>
+      <section>
+        <div class="button-row">
+          <button mat-button (click)="backClicked()">Back</button>
+          <button mat-button color="primary" (click)="backClicked()">New Vaccination</button>
+        </div>
+      </section>
     </div>
 
     <div  class="col-lg-8">
