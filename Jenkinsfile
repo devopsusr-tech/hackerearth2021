@@ -97,9 +97,7 @@ pipeline {
             }
             steps {
                 sh '''
-                docker-compose stop
-                docker-compose rm -f
-                docker-compose pull
+                docker-compose down
                 docker-compose up -d'''
             }
         }
