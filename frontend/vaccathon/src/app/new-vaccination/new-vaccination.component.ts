@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
-import {PatientService} from '../services/patient.service';
-import {Vaccination} from '../models/vaccination';
-import {Patient} from '../models/patient';
+import {VaccinationService} from '../services/vaccination.service';
+import {DoctorService} from '../services/doctor.service';
+import {VaccinationTemplate} from '../models/vaccinationTemplate';
+import {Location} from '@angular/common';
+import {Doctor} from '../models/doctor';
 
 @Component({
   selector: 'app-new-vaccination',
@@ -13,38 +13,35 @@ import {Patient} from '../models/patient';
 })
 export class NewVaccinationComponent implements OnInit {
 
-  myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
-  filteredOptions: Observable<string[]>;
-  private patient: any;
-  // model = new Vaccination();
+  vaccinationTemplateOptions: VaccinationTemplate[] = [];
+  doctorOptions: Doctor[] = [];
 
-  constructor(private patientService: PatientService) {
-    this.filteredOptions = new Observable<string[]>();
+  constructor(private vaccinationService: VaccinationService, private doctorService: DoctorService, private location: Location) {
   }
 
   ngOnInit(): void {
-    this.patient = this._loadPatient(123);
-
-    this.filteredOptions = this.myControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filter(value))
-      );
+    this._loadAllVaccinationTemplates().subscribe(templates => {
+      this.vaccinationTemplateOptions = templates as VaccinationTemplate[];
+    });
+    this._loadAllDoctors().subscribe(doctor => {
+      this.doctorOptions = doctor as Doctor[];
+    });
   }
 
-  private _loadPatient(nationalInsuranceNumber: number): Observable<Patient> {
-    return this.patientService.getPatient(nationalInsuranceNumber);
+  private _loadAllVaccinationTemplates(): Observable<VaccinationTemplate[]> {
+    return this.vaccinationService.getAllVaccinationTemplates();
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  private _loadAllDoctors(): Observable<Doctor[]> {
+    return this.doctorService.getAllDoctors();
   }
 
-  setValue(): void {
+  saveNewVaccination(): void {
     //
+  }
+
+  cancelClicked(): void {
+    this.location.back();
   }
 
 }

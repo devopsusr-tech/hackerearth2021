@@ -18,7 +18,7 @@ const routes: Routes = [
     component: UserProfileComponent,
     data: {title: 'Patient Profile'}
   }, {
-    path: 'profile/new_entry',
+    path: 'patient/vaccination/:id',
     component: NewVaccinationComponent,
     data: {title: 'Add New Vaccination'}
   }

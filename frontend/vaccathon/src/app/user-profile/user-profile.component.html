@@ -1,6 +1,6 @@
 <div *ngIf="patient" style="background: aliceblue">
   <div class="row">
-    <div  class="col-lg-4">
+    <div class="col-lg-4">
       <mat-card>
         <mat-card-title>
           <p>Name: {{patient.firstName}} {{patient.lastName}}</p>
@@ -17,26 +17,28 @@
       </mat-card>
       <section>
         <div class="button-row">
-          <button mat-button (click)="backClicked()">Back</button>
-          <button mat-button color="primary" (click)="backClicked()">New Vaccination</button>
+          <button mat-raised-button (click)="backClicked()">Back</button>
+          <button mat-raised-button color="primary" (click)="newVaccinationClicked(patient.nationalInsuranceNumber)">New
+            Vaccination
+          </button>
         </div>
       </section>
     </div>
 
-    <div  class="col-lg-8">
+    <div class="col-lg-8">
       <mat-card>
         <mat-card-title>
           <p>Vaccination History</p>
         </mat-card-title>
         <mat-card-content>
-            <mat-list>
-              <mat-list-item *ngFor="let vacc of patient.vaccinationList">
-                <div mat-line>{{vacc.template.id}} </div>
-                <div mat-line>{{vacc.doctor.firstName}} {{vacc.doctor.lastName}}</div>
-                <div mat-line>{{vacc.applicationDate | date}}</div>
-                <div mat-line>{{vacc.expirationDate | date}}</div>
-              </mat-list-item>
-            </mat-list>
+          <mat-list>
+            <mat-list-item *ngFor="let vacc of patient.vaccinationList">
+              <div mat-line>{{vacc.template.id}} </div>
+              <div mat-line>{{vacc.doctor.firstName}} {{vacc.doctor.lastName}}</div>
+              <div mat-line>{{vacc.applicationDate | date}}</div>
+              <div mat-line>{{vacc.expirationDate | date}}</div>
+            </mat-list-item>
+          </mat-list>
         </mat-card-content>
       </mat-card>
     </div>

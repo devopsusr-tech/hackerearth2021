@@ -1,17 +1,18 @@
-<form class="example-form">
+<form class="form">
   <mat-form-field class="full-width">
     <mat-label>Vaccination Template</mat-label>
     <mat-select>
-      <mat-option value="one">First option</mat-option>
-      <mat-option value="two">Second option</mat-option>
+      <mat-option *ngFor="let option of vaccinationTemplateOptions" [value]="option">
+        {{option.company}}
+      </mat-option>
     </mat-select>
   </mat-form-field>
 
   <mat-form-field appearance="fill" class="form-field">
     <mat-label>application Date</mat-label>
-    <input matInput [matDatepicker]="datepicker">
-    <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-    <mat-datepicker #datepicker>
+    <input matInput [matDatepicker]="datepicker_appDate">
+    <mat-datepicker-toggle matSuffix [for]="datepicker_appDate"></mat-datepicker-toggle>
+    <mat-datepicker #datepicker_appDate>
       <mat-datepicker-actions>
         <button mat-button matDatepickerCancel>Cancel</button>
         <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
@@ -21,24 +22,18 @@
 
   <mat-form-field class="full-width">
     <mat-label>Doctor</mat-label>
-    <input type="text"
-           placeholder="Pick one"
-           aria-label="Number"
-           matInput
-           [formControl]="myControl"
-           [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-        {{option}}
+    <mat-select>
+      <mat-option *ngFor="let option of doctorOptions" [value]="option">
+        {{option.firstName}} {{option.lastName}}
       </mat-option>
-    </mat-autocomplete>
+    </mat-select>
   </mat-form-field>
 
   <mat-form-field appearance="fill" class="form-field">
-    <mat-label>application Date</mat-label>
-    <input matInput [matDatepicker]="datepicker">
-    <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-    <mat-datepicker #datepicker>
+    <mat-label>expiration Date</mat-label>
+    <input matInput [matDatepicker]="datepicker_expDate">
+    <mat-datepicker-toggle matSuffix [for]="datepicker_expDate"></mat-datepicker-toggle>
+    <mat-datepicker #datepicker_expDate>
       <mat-datepicker-actions>
         <button mat-button matDatepickerCancel>Cancel</button>
         <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
@@ -47,6 +42,7 @@
   </mat-form-field>
 
   <div class="button-row">
-    <button mat-raised-button (click)="setValue()">Submit</button>
+    <button mat-raised-button (click)="cancelClicked()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="saveNewVaccination()">Save</button>
   </div>
 </form>

@@ -28,7 +28,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatOptionModule} from '@angular/material/core';
+import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import {MatOptionModule} from '@angular/material/core';
     MatButtonModule,
     MatCardModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     MatDialogModule,
     MatIconModule,
     MatInputModule,
@@ -59,7 +61,8 @@ import {MatOptionModule} from '@angular/material/core';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatOptionModule
+    MatOptionModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
