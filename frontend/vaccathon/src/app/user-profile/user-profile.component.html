@@ -22,26 +22,28 @@
         </div>
       </section>
     </div>
-
     <div  class="col-lg-8">
-      <mat-card>
-        <mat-card-title>
-          <p>Vaccination History</p>
-        </mat-card-title>
+      <h3>History</h3>
+      <ng-container *ngFor="let item of patient.vaccinationList">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title> {{item.template.type}} </mat-card-title>
+          <mat-card-subtitle>{{item.template.company}}</mat-card-subtitle>
+        </mat-card-header>
         <mat-card-content>
-            <mat-list>
-              <mat-list-item *ngFor="let vacc of patient.vaccinationList">
-                <div mat-line>{{vacc.template.id}} </div>
-                <div mat-line>{{vacc.doctor.firstName}} {{vacc.doctor.lastName}}</div>
-                <div mat-line>{{vacc.applicationDate | date}}</div>
-                <div mat-line>{{vacc.expirationDate | date}}</div>
-              </mat-list-item>
-            </mat-list>
+          <p><b>Description:</b></p>
+          <p>{{item.template.description}}</p>
+          <p><b>Effect duration:</b></p>
+          <p>{{item.applicationDate.toLocaleDateString}} - {{item.expirationDate.toLocaleDateString}}</p>
+          <p><b>Doctor:</b></p>
+          <p>{{item.doctor.firstName}} {{item.doctor.lastName}}</p>
         </mat-card-content>
       </mat-card>
+        <br/>
+      </ng-container>
+
     </div>
   </div>
-
-
-  <p>API Version: {{apiVersion}}    </p>
+  <p>Version: {{apiVersion}}</p>
 </div>

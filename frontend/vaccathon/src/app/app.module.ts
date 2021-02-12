@@ -15,6 +15,7 @@ import {MatTableModule} from '@angular/material/table';
 import {UsersListComponent} from './users-list/users-list.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -22,17 +23,18 @@ import {MatListModule} from '@angular/material/list';
     UserProfileComponent,
     UsersListComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    NoopAnimationsModule,
-    NgbModule,
-    MatButtonModule,
-    MatTableModule,
-    MatCardModule,
-    MatListModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        NoopAnimationsModule,
+        NgbModule,
+        MatButtonModule,
+        MatTableModule,
+        MatCardModule,
+        MatListModule,
+        MatSelectModule
+    ],
   providers: [],
   bootstrap: [AppComponent],
   exports: [BsDropdownModule, TooltipModule, ModalModule]
