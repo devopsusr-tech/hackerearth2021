@@ -23,7 +23,7 @@
       </section>
     </div>
     <div  class="col-lg-8">
-      <h3>History</h3>
+      <h4>History</h4>
       <ng-container *ngFor="let item of patient.vaccinationList">
         <mat-card class="example-card">
           <mat-card-header>
@@ -34,10 +34,10 @@
         <mat-card-content>
           <p><b>Description:</b></p>
           <p>{{item.template.description}}</p>
-          <p><b>Effect duration:</b></p>
-          <p>{{item.applicationDate.toLocaleDateString}} - {{item.expirationDate.toLocaleDateString}}</p>
           <p><b>Doctor:</b></p>
           <p>{{item.doctor.firstName}} {{item.doctor.lastName}}</p>
+          <p><b>Effect duration:</b></p>
+          <p>{{item.applicationDate}} to {{item.expirationDate}} </p>
         </mat-card-content>
       </mat-card>
         <br/>
