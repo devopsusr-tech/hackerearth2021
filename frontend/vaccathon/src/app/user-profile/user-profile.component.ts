@@ -33,20 +33,17 @@ export class UserProfileComponent implements OnInit, OnDestroy {
       });
     });
 
-    this.patientService.getAPIVersion().subscribe((version) => {
-      console.log('API version: ', version);
-      this.apiVersion = version;
-    }, error => {
-      console.error(error);
-    });
   }
 
   backClicked(): void {
     this.location.back();
   }
 
-  newVaccinationClicked(securityNumber: number): void {
-    this.router.navigate(['/patient/vaccination/' + securityNumber]);
+  forwardClicked = (): void => {
+    if (this.patient) {
+      const securityNumber = this.patient.nationalInsuranceNumber;
+      this.router.navigate(['/patient/vaccination/' + securityNumber]);
+    }
   }
 
   ngOnDestroy(): void {
