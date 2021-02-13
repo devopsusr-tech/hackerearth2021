@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {UserProfileComponent} from './user-profile/user-profile.component';
 import {UsersListComponent} from './users-list/users-list.component';
+import {NewVaccinationComponent} from './new-vaccination/new-vaccination.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
     path: 'patient/:id',
     component: UserProfileComponent,
     data: {title: 'Patient Profile'}
+  }, {
+    path: 'patient/vaccination/:id',
+    component: NewVaccinationComponent,
+    data: {title: 'Add New Vaccination'}
   }
 ];
 

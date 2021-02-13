@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {PatientService} from '../services/patient.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {Patient} from '../models/patient';
 import {Location} from '@angular/common';
@@ -22,7 +22,7 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   patient: Patient | undefined = undefined;
   displayedColumns: any;
 
-  constructor(private patientService: PatientService, private route: ActivatedRoute, private location: Location) {
+  constructor(private patientService: PatientService, private route: ActivatedRoute, private location: Location, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -43,6 +43,10 @@ export class UserProfileComponent implements OnInit, OnDestroy {
 
   backClicked(): void {
     this.location.back();
+  }
+
+  newVaccinationClicked(securityNumber: number): void {
+    this.router.navigate(['/patient/vaccination/' + securityNumber]);
   }
 
   ngOnDestroy(): void {
