@@ -1,4 +1,11 @@
 <div *ngIf="patient" >
+  <app-top-navigation
+    [backText]="'Back'"
+    [forwardText]="'New Vaccination'"
+    [showForward]="true"
+    [forwardClicked]="forwardClicked"
+  ></app-top-navigation>
+
   <div class="row">
     <div class="col-lg-4">
       <h4> </h4>
@@ -13,17 +20,9 @@
           <p><i>{{patient.city}}</i></p>
           <p><i>{{patient.phone}}</i></p>
           <p><i>{{patient.email}}</i></p>
-          <p><i>{{patient.birthDay}}</i></p>
+          <p><i>{{patient.birthDay | date}}</i></p>
         </mat-card-content>
       </mat-card>
-      <section>
-        <div class="button-row">
-          <button mat-raised-button (click)="backClicked()">Back</button>
-          <button mat-raised-button class="vcc-primary" (click)="newVaccinationClicked(patient.nationalInsuranceNumber)">New
-            Vaccination
-          </button>
-        </div>
-      </section>
     </div>
     <div  class="col-lg-8">
       <h4>History</h4>
@@ -35,12 +34,12 @@
           <mat-card-subtitle>{{item.template.company}}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-          <p><b>Description:</b></p>
+          <p class="no-margin"><b>Description:</b></p>
           <p>{{item.template.description}}</p>
-          <p><b>Doctor:</b></p>
+          <p class="no-margin"><b>Doctor:</b></p>
           <p>{{item.doctor.firstName}} {{item.doctor.lastName}}</p>
-          <p><b>Effect duration:</b></p>
-          <p>{{item.applicationDate}} to {{item.expirationDate}} </p>
+          <p class="no-margin"><b>Effect duration:</b></p>
+          <p>{{item.applicationDate | date}} to {{item.expirationDate | date}} </p>
         </mat-card-content>
       </mat-card>
         <br/>

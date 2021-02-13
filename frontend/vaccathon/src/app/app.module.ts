@@ -30,10 +30,12 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {TopNavigationComponent} from "./shared/top-navigation/top-navigation.component";
 
 @NgModule({
   declarations: [
     AppComponent,
+    TopNavigationComponent,
     UserProfileComponent,
     UsersListComponent,
     NewVaccinationComponent
