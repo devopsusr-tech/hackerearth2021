@@ -1,18 +1,19 @@
 <div *ngIf="patient" >
   <div class="row">
     <div class="col-lg-4">
+      <h4> </h4>
       <mat-card>
         <mat-card-title>
-          <p>Name: {{patient.firstName}} {{patient.lastName}}</p>
+          <p>{{patient.firstName}} {{patient.lastName}}</p>
         </mat-card-title>
         <mat-card-subtitle>
-          <p>National Insurance Number: {{patient.nationalInsuranceNumber}}</p>
+          <p>{{patient.nationalInsuranceNumber}}</p>
         </mat-card-subtitle>
         <mat-card-content>
-          <p>Birth Date: {{patient.birthDay}}</p>
-          <p>Residence City: {{patient.city}}</p>
-          <p>Phone: {{patient.phone}}</p>
-          <p>E-Mail: {{patient.email}}</p>
+          <p><i>{{patient.city}}</i></p>
+          <p><i>{{patient.phone}}</i></p>
+          <p><i>{{patient.email}}</i></p>
+          <p><i>{{patient.birthDay}}</i></p>
         </mat-card-content>
       </mat-card>
       <section>
