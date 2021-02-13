@@ -20,6 +20,7 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   private routeSub: Subscription | null = null;
   apiVersion = '';
   patient: Patient | undefined = undefined;
+  displayedColumns: any;
 
   constructor(private patientService: PatientService, private route: ActivatedRoute, private location: Location, private router: Router) {
   }

@@ -5,18 +5,25 @@
 ![plot](images/BS-Page.png)
 
 <h2> How to run the project </h2>
-1. Clone the repo locally `git clone https://github.com/devopsusr-tech/hackerearth2021.git`
-2. Go to root of the project
-3. Run `docker-composer up`
-4. It will be run on http://localhost
+<p>
+ 
+  1. Clone the repo locally `git clone https://github.com/devopsusr-tech/hackerearth2021.git`
+  2. Go to root of the project
+  3. Run `docker-composer up`
+  4. It will be run on http://localhost
+ 
+</p>
 
 <h2> Requirements to develop </h2>
- - Docker
- - Java 11
- - Apache Maven
- - npm
- - Node JS
- - 
+<p>
+ 
+  - Docker
+  - Java 11
+  - Apache Maven
+  - npm
+  - Node JS
+  -
+</p>
  
 <h2> How to setup Backend </h2>
 1. ...
