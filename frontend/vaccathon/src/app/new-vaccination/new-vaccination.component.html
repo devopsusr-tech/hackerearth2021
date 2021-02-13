@@ -1,7 +1,7 @@
-<form class="form">
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" class="form">
   <mat-form-field class="full-width">
     <mat-label>Vaccination Template</mat-label>
-    <mat-select>
+    <mat-select ngModel name="template">
       <mat-option *ngFor="let option of vaccinationTemplateOptions" [value]="option">
         {{option.company}}
       </mat-option>
@@ -10,7 +10,7 @@
 
   <mat-form-field appearance="fill" class="form-field">
     <mat-label>application Date</mat-label>
-    <input matInput [matDatepicker]="datepicker_appDate">
+    <input matInput [matDatepicker]="datepicker_appDate" ngModel name="applicationDate">
     <mat-datepicker-toggle matSuffix [for]="datepicker_appDate"></mat-datepicker-toggle>
     <mat-datepicker #datepicker_appDate>
       <mat-datepicker-actions>
@@ -22,7 +22,7 @@
 
   <mat-form-field class="full-width">
     <mat-label>Doctor</mat-label>
-    <mat-select>
+    <mat-select ngModel name="doctor">
       <mat-option *ngFor="let option of doctorOptions" [value]="option">
         {{option.firstName}} {{option.lastName}}
       </mat-option>
@@ -31,7 +31,7 @@
 
   <mat-form-field appearance="fill" class="form-field">
     <mat-label>expiration Date</mat-label>
-    <input matInput [matDatepicker]="datepicker_expDate">
+    <input matInput [matDatepicker]="datepicker_expDate" ngModel name="expirationDate">
     <mat-datepicker-toggle matSuffix [for]="datepicker_expDate"></mat-datepicker-toggle>
     <mat-datepicker #datepicker_expDate>
       <mat-datepicker-actions>
@@ -43,6 +43,6 @@
 
   <div class="button-row">
     <button mat-raised-button (click)="cancelClicked()">Cancel</button>
-    <button mat-raised-button color="primary" (click)="saveNewVaccination()">Save</button>
+    <button mat-raised-button color="primary" (click)="onSubmit(f)">Save</button>
   </div>
 </form>
