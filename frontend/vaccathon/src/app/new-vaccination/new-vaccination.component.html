@@ -16,7 +16,7 @@
             <mat-label>Vaccination</mat-label>
             <mat-select ngModel name="template">
               <mat-option *ngFor="let option of vaccinationTemplateOptions" [value]="option">
-                {{option.company}}
+                {{option.type}}
               </mat-option>
             </mat-select>
           </mat-form-field>
