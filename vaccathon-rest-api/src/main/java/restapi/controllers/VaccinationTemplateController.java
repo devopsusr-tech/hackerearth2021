@@ -20,13 +20,13 @@ public class VaccinationTemplateController {
 
     @CrossOrigin(origins = "http://localhost:9090")
     @RequestMapping(value = "/findAllVaccinationTemplates")
-    public List<VaccinationTemplate> getAllPatients(){
+    public List<VaccinationTemplate> getAllVaccinationTemplates(){
         return vaccinationTemplateRepository.findAll();
     }
 
     @CrossOrigin(origins = "http://localhost:9090")
     @PostMapping(value = "/createVaccinationTemplate")
-    public String createPatient(@RequestBody VaccinationTemplate vaccinationTemplate){
+    public String createVaccinationTemplate(@RequestBody VaccinationTemplate vaccinationTemplate){
         if(vaccinationTemplate.getId() == null || vaccinationTemplate.getId() == 0) {
             vaccinationTemplate.setId(sequenceGenerator.generateSequenceId(DocumentType.vaccinationTemplate));
         }
@@ -37,7 +37,7 @@ public class VaccinationTemplateController {
 
     @CrossOrigin(origins = "http://localhost:9090")
     @GetMapping("/findAllVaccinationTemplates/{id}")
-    public Optional<VaccinationTemplate> getPatient(@PathVariable long id){
+    public Optional<VaccinationTemplate> getVaccinationTemplate(@PathVariable long id){
         return vaccinationTemplateRepository.findById(id);
     }
 }
