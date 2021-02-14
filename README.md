@@ -23,7 +23,6 @@
   - Apache Maven
   - npm
   - Node JS
-  -
 </p>
 
 <h2> How to setup Backend </h2>
@@ -31,7 +30,7 @@
 
 <h2> How to setup Frontend </h2>
 <a href="frontend/vaccathon/README.md">
-  Guidelines for setuo the frontend
+  Guidelines for setup the frontend
 </a>
 
 <h2> Continuous Integration </h2>
