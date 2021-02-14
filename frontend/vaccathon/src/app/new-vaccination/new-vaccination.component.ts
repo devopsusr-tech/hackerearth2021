@@ -52,7 +52,7 @@ export class NewVaccinationComponent implements OnInit {
 
   onSubmit(f: NgForm): void {
     this.vaccination = f.value;
-    this.vaccinationService.saveVaccination(this.vaccination).subscribe({
+    this.vaccinationService.saveVaccination(this.vaccination, this.nationalInsuranceNumber).subscribe({
       next: data => {
         this.putVaccinationIntoPatientHistory(this.nationalInsuranceNumber, data);
       },
