@@ -2,9 +2,7 @@ package restapi.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import restapi.dto.Patient;
 import restapi.dto.Vaccination;
-import restapi.repositories.PatientRepository;
 import restapi.repositories.VaccinationRepository;
 import restapi.services.DocumentType;
 import restapi.services.SequenceGeneratorService;
@@ -17,8 +15,6 @@ public class VaccinationController {
 
     @Autowired
     public VaccinationRepository vaccinationRepository;
-    @Autowired
-    public PatientRepository patientRepository;
     @Autowired
     public SequenceGeneratorService sequenceGenerator;
 
@@ -35,22 +31,15 @@ public class VaccinationController {
     }
 
     @CrossOrigin(origins = "http://localhost:9090")
-    @PostMapping(value ="/createVaccination/pid/{patientId}")
-    public String createVaccination(@RequestBody Vaccination vaccination, @PathVariable long patientId) throws Exception {
+    @PostMapping(value ="/createVaccination")
+    @ResponseBody
+    public Vaccination createVaccination(@RequestBody Vaccination vaccination) {
         if(vaccination.getProductNumber() == null || vaccination.getProductNumber() == 0) {
             vaccination.setProductNumber(sequenceGenerator.generateSequenceId(DocumentType.vaccination));
         }
         vaccinationRepository.insert(vaccination);
 
-        Optional<Patient> optPatient = patientRepository.findById(patientId);
-        if(optPatient.isEmpty()) {
-            throw new Exception("Not found!");
-        }
-        Patient existPatient = optPatient.get();
-        existPatient.getVaccinationList().add(vaccination);
-        patientRepository.save(existPatient);
-
-        return "Vaccination created and added in the list of patient!";
+        return vaccination;
     }
 
     @CrossOrigin(origins = "http://localhost:9090")
