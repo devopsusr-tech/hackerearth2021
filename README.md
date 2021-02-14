@@ -31,18 +31,18 @@
 
 <p>
   <h2> How to setup Backend </h2>
-    
-    1. Clone the repo locally `git clone https://github.com/devopsusr-tech/hackerearth2021.git`
-    2. Open the project in intelliJ    
-    3. Project structure > Project > Project SDK > You have to set your java path here (Java version >11)    
-    4. Project structure > Modules > Click Sources > Set src folder as Source
-    5. Update maven dependencies
+  
+   1. Clone the repo locally `git clone https://github.com/devopsusr-tech/hackerearth2021.git`
+   2. Open the project in intelliJ    
+   3. Project structure > Project > Project SDK > You have to set your java path here (Java version >11)    
+   4. Project structure > Modules > Click Sources > Set src folder as Source
+   5. Update maven dependencies
       Settings/Preferences > Build, Execution, Deployment > Build Tools > Maven > Repositories > click Update
-    6. Maven clean and install    
-    7. Build backend docker container after changes
+   6. Maven clean and install    
+   7. Build backend docker container after changes
       - Go to backend directory
       - `docker build -t lulzimbulica/vaccathon-backend .`
-    8. If you get an error message "/bin/sh: 1: ./mvnw: not found"
+   8. If you get an error message "/bin/sh: 1: ./mvnw: not found"
       - Go to backend directory
       - Run `mvn -N io.takari:maven:wrapper`
 </p>
