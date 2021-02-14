@@ -39,38 +39,9 @@ public class PatientController {
     }
 
     @CrossOrigin(origins = "http://localhost:9090")
-    @RequestMapping("/addVaccination/{pid}/vaccination/{vid}")
-    public String addNewVaccination(@PathVariable long pid, @PathVariable long vid) throws Exception {
-        try {
-            Optional<Patient> optPatient = patientRepository.findById(pid);
-            Optional<Vaccination> optVaccination = vaccinationRepository.findById(vid);
-            if (optPatient.isEmpty() || optVaccination.isEmpty()) {
-                throw new Exception("Not found!"); //TODO change response
-            }
-            Patient existPatient = optPatient.get();
-            Vaccination existVaccination = optVaccination.get();
-            existPatient.getVaccinationList().add(existVaccination);
-            patientRepository.save(existPatient);
-
-            return "The new vaccination in the list of patient";
-        } catch (Exception e) {
-            return e.getMessage();
-        }
-    }
-
-    @CrossOrigin(origins = "http://localhost:9090")
     @GetMapping("/findAllPatients/{id}")
     public Optional<Patient> getPatient(@PathVariable long id){
         return patientRepository.findById(id);
     }
 
-    @CrossOrigin(origins = "http://localhost:9090")
-    @PostMapping(value = "/newVaccination")
-    public boolean addNewVaccination(Patient patient, Vaccination vaccination){
-        if (vaccination==null || patient == null)
-            return false;
-
-        patient.getVaccinationList().add(vaccination);
-        return true;
-    }
 }
