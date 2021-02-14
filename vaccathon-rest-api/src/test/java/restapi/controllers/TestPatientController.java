@@ -16,7 +16,7 @@ public class TestPatientController {
     private static final String phone = "00431523535";
     private static final String city = "Vienna";
     private static final String hospital = "AKH";
-    private PatientController patientController = new PatientController();
+    private VaccinationController vaccinationController = new VaccinationController();
     private List<Vaccination> vaccinationList = new ArrayList();
     private Patient patient = new Patient(nationalInsuranceNumber,firstName,lastName,birthDay,email,phone,city,vaccinationList);
     private Doctor doctor = new Doctor(nationalInsuranceNumber, firstName, lastName, birthDay, email, phone, city, hospital);
@@ -26,15 +26,13 @@ public class TestPatientController {
             new Date(2022,02,10), "take care of your health");
 
     @Test
-    void checkAddingNewVaccination()
-    {
-        assertTrue(patientController.addNewVaccination(patient,vaccination));
+    void checkAddingNewVaccination() throws Exception {
+        assertNull(vaccinationController.createVaccination(vaccination, patient.getNationalInsuranceNumber()));
     }
 
     @Test
-    void checkCountOfVaccinationList()
-    {
-        patientController.addNewVaccination(patient,vaccination);
+    void checkCountOfVaccinationList() throws Exception {
+        vaccinationController.createVaccination(vaccination, patient.getNationalInsuranceNumber());
         assertEquals(1,patient.getVaccinationList().size());
     }
 }
