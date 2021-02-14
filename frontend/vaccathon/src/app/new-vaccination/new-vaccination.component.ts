@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable, Subscription} from 'rxjs';
 import {VaccinationService} from '../services/vaccination.service';
 import {DoctorService} from '../services/doctor.service';
@@ -7,7 +7,7 @@ import {Location} from '@angular/common';
 import {Doctor} from '../models/doctor';
 import {Vaccination} from '../models/vaccination';
 import {NgForm} from '@angular/forms';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-new-vaccination',
@@ -19,17 +19,18 @@ export class NewVaccinationComponent implements OnInit {
   vaccination: Vaccination = {} as Vaccination;
   vaccinationTemplateOptions: VaccinationTemplate[] = [];
   doctorOptions: Doctor[] = [];
-  private productNumber = 0;
+  private nationalInsuranceNumber = 0;
 
   constructor(private route: ActivatedRoute,
               private vaccinationService: VaccinationService,
               private doctorService: DoctorService,
-              private location: Location) {
+              private location: Location,
+              private router: Router) {
   }
 
   ngOnInit(): void {
     this.routeSub = this.route.params.subscribe(params => {
-      this.productNumber = params.id;
+      this.nationalInsuranceNumber = params.id;
     });
     this._loadAllVaccinationTemplates().subscribe(templates => {
       this.vaccinationTemplateOptions = templates as VaccinationTemplate[];
@@ -49,13 +50,15 @@ export class NewVaccinationComponent implements OnInit {
 
   onSubmit(f: NgForm): void {
     this.vaccination = f.value;
-    this.vaccination.productNumber = this.productNumber;
-    const result = this.vaccinationService.saveVaccination(this.vaccination);
-    if (result) {
-      window.alert('The new vaccine has been added to the history!');
-    } else {
-
-    }
+    this.vaccinationService.saveVaccination(this.vaccination, this.nationalInsuranceNumber).subscribe({
+      next: data => {
+        console.log('It was succeed!', data);
+        this.router.navigate(['/patient/' + this.nationalInsuranceNumber]);
+      },
+      error: error => {
+        console.error('There was an error!', error);
+      }
+    });
   }
 
   cancelClicked(): void {

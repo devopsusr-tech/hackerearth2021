@@ -16,7 +16,11 @@ export class VaccinationService {
     return this.httpClient.get<VaccinationTemplate[]>('/rest/findAllVaccinationTemplates');
   }
 
-  public saveVaccination(vaccination: Vaccination): Observable<Vaccination> {
-    return this.httpClient.post<Vaccination>('/rest/createVaccination', vaccination);
+  public saveVaccination(vaccination: Vaccination, nationalInsuranceNumber: number): Observable<any> {
+
+    const headers = {'content-type': 'application/json'};
+    const body = JSON.stringify(vaccination);
+
+    return this.httpClient.post<Vaccination>('/rest/createVaccination/pid/' + nationalInsuranceNumber, body, {'headers': headers});
   }
 }
