@@ -22,4 +22,8 @@ export class PatientService {
   public getAPIVersion(): Observable<string> {
     return this.httpClient.get<string>('/rest/');
   }
+
+  public updateVaccinationHistoryOfPatient(nationalInsuranceNumber: number, vaccinationProductNumber: number): Observable<any> {
+    return this.httpClient.get('/rest/addVaccination/' + nationalInsuranceNumber + '/vaccination/' + vaccinationProductNumber);
+  }
 }
