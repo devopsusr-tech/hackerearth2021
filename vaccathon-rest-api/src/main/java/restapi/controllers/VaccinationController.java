@@ -35,7 +35,7 @@ public class VaccinationController {
     }
 
     @CrossOrigin(origins = "http://localhost:9090")
-    @PostMapping("/createVaccination/pid/{patientId}")
+    @PostMapping(value ="/createVaccination/pid/{patientId}")
     public String createVaccination(@RequestBody Vaccination vaccination, @PathVariable long patientId) throws Exception {
         if(vaccination.getProductNumber() == null || vaccination.getProductNumber() == 0) {
             vaccination.setProductNumber(sequenceGenerator.generateSequenceId(DocumentType.vaccination));
