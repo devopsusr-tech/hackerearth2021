@@ -39,7 +39,7 @@ public class VaccinationController {
     @CrossOrigin(origins = "http://localhost:9090")
     @PostMapping(value ="/createVaccination")
     public Vaccination createVaccination(@RequestBody Vaccination vaccination) throws Exception {
-        Optional<Patient> optPatient = patientRepository.findById(1L);
+        /*Optional<Patient> optPatient = patientRepository.findById(1L);
         Patient patient = optPatient.get();
         if (optPatient == null) {
             throw new Exception("Not found!"); //TODO change response
@@ -48,8 +48,8 @@ public class VaccinationController {
             vaccination.setProductNumber(sequenceGenerator.generateSequenceId(DocumentType.vaccination));
         }
         vaccinationRepository.save(vaccination);
-        patient.getVaccinationList().add(vaccination);
-        patientRepository.save(patient);
+        //patient.getVaccinationList().add(vaccination);
+        //patientRepository.save(patient);*/
         return vaccination;
     }
 
