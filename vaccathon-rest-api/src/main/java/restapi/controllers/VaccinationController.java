@@ -37,9 +37,9 @@ public class VaccinationController {
 
 
     @CrossOrigin(origins = "http://localhost:9090")
-    @PutMapping(value ="/createVaccination/patient")
-    public Vaccination createVaccination(@RequestBody Vaccination vaccination, @PathVariable long pid) throws Exception {
-        Optional<Patient> optPatient = patientRepository.findById(pid);
+    @PutMapping(value ="/createVaccination")
+    public Vaccination createVaccination(@RequestBody Vaccination vaccination) throws Exception {
+        Optional<Patient> optPatient = patientRepository.findById(1L);
         Patient patient = optPatient.get();
         if (optPatient == null) {
             throw new Exception("Not found!"); //TODO change response
