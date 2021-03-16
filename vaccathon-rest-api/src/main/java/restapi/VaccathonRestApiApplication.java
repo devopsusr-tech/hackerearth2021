@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import restapi.dto.Doctor;
 import restapi.dto.Patient;
 import restapi.dto.Vaccination;
@@ -20,6 +21,7 @@ import java.util.Arrays;
 import java.util.Date;
 
 @SpringBootApplication
+@ComponentScan({ "restapi.*" })
 public class VaccathonRestApiApplication {
 
     @Autowired
