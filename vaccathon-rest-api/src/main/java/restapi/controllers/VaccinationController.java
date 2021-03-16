@@ -37,7 +37,7 @@ public class VaccinationController {
 
 
     @CrossOrigin(origins = "http://localhost:9090")
-    @PutMapping(value ="/createVaccination/patient/{pid}")
+    @PutMapping(value ="/createVaccination/patient")
     public Vaccination createVaccination(@RequestBody Vaccination vaccination, @PathVariable long pid) throws Exception {
         Optional<Patient> optPatient = patientRepository.findById(pid);
         Patient patient = optPatient.get();
